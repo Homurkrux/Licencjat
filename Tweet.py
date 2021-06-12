@@ -9,6 +9,7 @@ class Tweet:
     tekstTweeta: str
     plecAutoraTweeta: str
     debata: str
+    slowaEmotywne: int
     tokeny: [Token]
     #konstruktor klasy
     def __init__(self, data: datetime.datetime, tekst: str, plecAutoraTweeta: str, debata: str):

@@ -18,6 +18,7 @@ def SerializeDfTweetsToObjectsAndAssigneNawlValues(df, NAWL_BE, nlp):
         tokeny= flatten(tokeny)
         NAWL_BE_generator = flatten(NAWL_BE)
         temp= set(tokeny).intersection(NAWL_BE_generator)
+        tweet.slowaEmotywne=len(temp)
         tweet.tokeny = []
         for elem in enumerate(temp):
             NAWL_BE_element = next((x for x in NAWL_BE if x[0] == elem[1]), None)
@@ -30,6 +31,7 @@ def SerializeDfTweetsToObjectsAndAssigneNawlValues(df, NAWL_BE, nlp):
                               NAWL_BE_element[5]))
         Tweets.append(tweet)
     return Tweets
+
 #zserializuj df Tweetów na [Tweet]
 def SerializeDfTweetsToTweets(df):
     Tweets=[]
@@ -49,6 +51,7 @@ def SerializeDfTweetsToTweets(df):
             
         Tweets.append(tweet)
     return Tweets
+
 #podziel listę na podlisty na podstawie delty czasu
 def group_by_time(objects, time):
     minutes = datetime.timedelta(minutes=time)
@@ -61,7 +64,8 @@ def group_by_time(objects, time):
         if time > last + minutes:
             yield group
             group = []
+            last = time
         group.append(obj)
-        last = time
+        
     else:
         yield group

@@ -18,6 +18,7 @@ def LoadCzasDecyzji():
     dfTweets_czas_decyzji = dfTweets_czas_decyzji[dfTweets_czas_decyzji['Tekst'].notna()]
     dfTweets_czas_decyzji = dfTweets_czas_decyzji.values.tolist()
     return dfTweets_czas_decyzji
+
 #Wczytuje df NAWL_BE z csv
 def LoadNAWL_BE():
     NAWL_BE = pd.read_csv(filepath_or_buffer="E:\\Lic\\pone.0132305.s004.csv",
@@ -36,6 +37,7 @@ def LoadNAWL_BE():
                         skip_blank_lines=True)
     NAWL_BE= NAWL_BE.values.tolist()
     return NAWL_BE
+
 #Wczytuje df zserializowanych w obiekt Tweetów z csv
 def LoadTweets():
     NAWL_BE = pd.read_csv(filepath_or_buffer="E:\\Lic\\Tweety.csv",
