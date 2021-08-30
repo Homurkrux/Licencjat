@@ -12,11 +12,12 @@ class Tweet:
     slowaEmotywne: int
     tokeny: [Token]
     #konstruktor klasy
-    def __init__(self, data: datetime.datetime, tekst: str, plecAutoraTweeta: str, debata: str):
+    def __init__(self, data: datetime.datetime, tekst: str, plecAutoraTweeta: str, debata: str, slowaEmotywne: int):
         self.dataCzas = data
         self.tekstTweeta = tekst
         self.plecAutoraTweeta = plecAutoraTweeta
         self.debata = debata
+        self.slowaEmotywne = slowaEmotywne
         self.tokeny = []
     #metoda parsująca obiekt klasy na słownik
     def as_dict(self):
@@ -24,4 +25,5 @@ class Tweet:
                'tekstTweeta': self.tekstTweeta,
                'plecAutoraTweeta': self.plecAutoraTweeta,
                'debata': self.debata,
+               'slowaEmotywne': self.slowaEmotywne,
                'tokeny': [x.as_dict() for x in self.tokeny]}

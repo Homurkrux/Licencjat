@@ -35,7 +35,7 @@ def LoadNAWL_BE():
                                "dis_M_all": float},
                         low_memory= False,
                         skip_blank_lines=True)
-    NAWL_BE= NAWL_BE.values.tolist()
+    
     return NAWL_BE
 
 #Wczytuje df zserializowanych w obiekt Tweetów z csv
@@ -43,7 +43,7 @@ def LoadTweets():
     NAWL_BE = pd.read_csv(filepath_or_buffer="E:\\Lic\\Tweety.csv",
                         sep=";",
                         header=0,
-                        names=["dataCzas", "tekstTweeta", "plecAutoraTweeta", "debata","tokeny"],
+                        names=["dataCzas", "tekstTweeta", "plecAutoraTweeta", "debata","slowaEmotywne", "tokeny"],
                         encoding="utf-8",
                         parse_dates=["dataCzas"],
                         dtype={"tekstTweeta": str,
