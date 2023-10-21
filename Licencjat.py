@@ -25,7 +25,11 @@ if option == '1':
     NAWL = LoadCSV.LoadNAWL()
     NAWLWords = Helpers.SerializeNAWLAndNAWL_BEIntoOneList(NAWL_BE, NAWL)
     dfWords = pd.DataFrame([x.as_dict() for x in NAWLWords])
+<<<<<<< HEAD
     dfWords.to_csv("NAWLWords.csv", sep=";", encoding="utf-8", index=False)
+=======
+    dfWords.to_csv("E:\\Lic\\NAWLWords.csv", sep=";", encoding="utf-8", index=False)
+>>>>>>> faf2ea5d2e8e3a99c64903b0103bec78753032b2
     Tweets = Helpers.SerializeDfTweetsToObjectsAndAssigneNawlValues(Tweets_czas_decyzji, NAWL_BE, NAWL, nlp)
     Tweets.sort(key=lambda l: l.dataCzas)
     df = pd.DataFrame([x.as_dict() for x in Tweets])
@@ -129,13 +133,11 @@ elif option == '2':
     plt.tight_layout()
     lines, labels = ax1.get_legend_handles_labels()
     lines2, labels2 = ax2.get_legend_handles_labels()
-    #ax2.legend(lines2 + lines, labels2 + labels, loc='upper left', bbox_to_anchor=(0.75, 1.2))
     fig = plt.gcf()
     figlegend = plt.figure(figsize=(5, 1))
     figlegend.legend(lines2 + lines, labels2 + labels, loc='center', ncol=1)
     figlegend.subplots_adjust(bottom=0.2)
     #NAWL arousal
-    #plt.show()
     fig, ax1 = plt.subplots()
     ax2 = ax1.twinx()
     hist_values, bins, patches = ax1.hist(nawlAro, bins=50, density=False, alpha=0.6, color='g', label = 'Liczba wystąpień')
@@ -181,7 +183,6 @@ elif option == '2':
 
 
     plt.figure()
-    # Plot the data from the two lists
     plt.scatter(nawlVal, nawlAro, label='Słowo', marker='x')
     plt.xlabel('Walencja')
     plt.ylabel('Pobudzenie')
@@ -192,7 +193,6 @@ elif option == '2':
     
 
     plt.figure()
-    # Plot the data from the two lists
     plt.scatter(tweetVal, tweetAro, label='Słowo', marker='x')
     plt.xlabel('Walencja')
     plt.ylabel('Pobudzenie')
@@ -222,7 +222,7 @@ elif option == '2':
     plt.ylabel('Prawdopodobieństwo wystąpienia')
     plt.xlim(1, 7)
     plt.ylim(0, 1)    
-    # Plot the probability density function (PDF)
+    
     x = np.linspace(min(nawlHapp), max(nawlHapp), 100)
     pdf = (1 / (statistics.stdev(nawlHapp) * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - statistics.mean(nawlHapp)) / statistics.stdev(nawlHapp))**2)
     plt.plot(x, pdf, color='r', linewidth=2, label = 'w NAWL')
@@ -251,7 +251,7 @@ elif option == '2':
     plt.ylabel('Prawdopodobieństwo wystąpienia')
     plt.xlim(1, 7)
     plt.ylim(0, 1)    
-    # Plot the probability density function (PDF)
+    
     x = np.linspace(min(nawlAng), max(nawlAng), 100)
     pdf = (1 / (statistics.stdev(nawlAng) * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - statistics.mean(nawlAng)) / statistics.stdev(nawlAng))**2)
     plt.plot(x, pdf, color='r', linewidth=2, label = 'w NAWL')
@@ -280,7 +280,6 @@ elif option == '2':
     plt.ylabel('Prawdopodobieństwo wystąpienia')
     plt.xlim(1, 7)
     plt.ylim(0, 1)    
-    # Plot the probability density function (PDF)
     x = np.linspace(min(nawlSad), max(nawlSad), 100)
     pdf = (1 / (statistics.stdev(nawlSad) * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - statistics.mean(nawlSad)) / statistics.stdev(nawlSad))**2)
     plt.plot(x, pdf, color='r', linewidth=2, label = 'w NAWL')
@@ -309,7 +308,7 @@ elif option == '2':
     plt.ylabel('Prawdopodobieństwo wystąpienia')
     plt.xlim(1, 7)
     plt.ylim(0, 1)    
-    # Plot the probability density function (PDF)
+    
     x = np.linspace(min(nawlFear), max(nawlFear), 100)
     pdf = (1 / (statistics.stdev(nawlFear) * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - statistics.mean(nawlFear)) / statistics.stdev(nawlFear))**2)
     plt.plot(x, pdf, color='r', linewidth=2, label = 'w NAWL')
@@ -338,7 +337,6 @@ elif option == '2':
     plt.ylabel('Prawdopodobieństwo wystąpienia')
     plt.xlim(1, 7)
     plt.ylim(0, 1)    
-    # Plot the probability density function (PDF)
     x = np.linspace(min(nawlDisg), max(nawlDisg), 100)
     pdf = (1 / (statistics.stdev(nawlDisg) * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - statistics.mean(nawlDisg)) / statistics.stdev(nawlDisg))**2)
     plt.plot(x, pdf, color='r', linewidth=2, label = 'w NAWL')
