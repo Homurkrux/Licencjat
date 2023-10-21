@@ -1,10 +1,9 @@
 from dataclasses import dataclass
 
-
-#klasa tokenu słowa z wartościami z bazy NAWL_BE
+#klasa s�owa NAWL
 @dataclass
-class Token:
-    token: str
+class NAWLWord:
+    word: str
     happ: float
     ang: float
     sad: float
@@ -13,8 +12,8 @@ class Token:
     val: float
     arou: float
     #konstruktor klasy
-    def __init__(self,token: str, happ: float, ang: float, sad: float, fear: float, disg: float, val: float, arou: float):
-        self.token = token
+    def __init__(self,word: str, happ: float, ang: float, sad: float, fear: float, disg: float, val: float, arou: float):
+        self.word = word
         self.happ = happ
         self.ang = ang
         self.sad = sad
@@ -22,9 +21,9 @@ class Token:
         self.disg = disg
         self.val = val
         self.arou = arou
-    #metoda parsująca obiekt klasy na słownik
+    #metoda parsuj�ca obiekt klasy na s�ownik
     def as_dict(self):
-        return {'token': self.token,
+        return {'word': self.word,
                'happ': self.happ,
                'ang': self.ang,
                'sad': self.sad,
@@ -32,4 +31,3 @@ class Token:
                'disg': self.disg,
                'val' : self.val,
                'arou': self.arou}
-    
